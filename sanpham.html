@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+    <title data-nn="ttsanpham">Tất Cả Món Hải Sản</title>
+    <link rel="icon" href="Picture/logo.jpg">      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Picture/LogoRestaurant.png">
+
+    <!--Thư viện boostrap-->
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!--CSS gõ tay-->
+    <link rel="stylesheet" href="CSS/headermainfooter.css">
+    <link rel="stylesheet" href="CSS/sanpham.css">
+
+    <!--Thư viện thay đổi thẻ nav khi thu nhỏ màn hình và thuộc tính của loader-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!--Hiển thị giỏ hàng-->
+    <script src="JS/dathang.js"></script>
+
+</head>
+
+<body>
+    <!--loader-->
+    <div id='af-preloader'>
+        <div class='af-preloader-wrap'>
+            <div class='af-sp af-sp-wave'></div>
+        </div>
+    </div>
+    <script>
+        $(window).on('load', function () {
+            setTimeout(function () {
+                $('#af-preloader').fadeOut('slow');
+            }, 500);
+        });
+    </script>
+
+    <!--header-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a id="#top" class="navbar-brand" href="trangchu.html">
+                <img src="Picture/LogoRestaurant.jpg" width="70px" />
+            </a>
+
+            <!--Nút mở thẻ nav khi ở dạng màn hình điện thoại-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--Các nav điều hướng-->
+            <!--Các nav điều hướng-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto navbar-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="trangchu.html" data-nn="trangchu">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gioithieu.html" data-nn="gioithieu">Giới Thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sanpham.html" data-nn="sanpham">Sản Phẩm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lienhe.html" data-nn="lienhe">Liên Hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tintuc.html" data-nn="tintuc">Tin Tức</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dangky.html" data-nn="dangky">Đăng Ký</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dangnhap.html" data-nn="dangnhap">Đăng Nhập</a>
+                </li>
+            </ul>
+            <!--Form chứa thanh tìm kiếm, điều hướng giỏ hàng và chuyển đổi ngôn ngữ-->
+            <form class="form-inline my-2 my-lg-0" method="get">
+                <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-nn="timkiem">Tìm kiếm</button>
+                <a href="donhang.html"><img src="Picture/giohang.jpg" width="85px"></a>
+            </form>
+        </div>
+
+        </nav>
+    </header>
+
+    <!--main-->
+    <main>
+        <div class="headline">
+            <h1 data-nn="sanpham">Món Hải Sản</h1>
+        </div>
+
+        <div class="headline1">
+            <h2>Món Nướng</h2>
+        </div>
+
+        <article class="article-2">
+
+            <div class="divsp">
+                <div id="carouselTomNuong" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/tomnuong.jpg" alt="Tôm Nướng 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/tomnuong2.jpg" alt="Tôm Nướng 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Tôm Nướng Muối Ớt</div>
+                    <div class="price">100.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon001" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon001')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselMucNuong" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/mucnuong.jpg.jpg" alt="Mực Nướng 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/mucnuong2.jpg" alt="Mực Nướng 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Mực Nướng Sa Tế</div>
+                    <div class="price">120.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon002" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon002')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselCaLocNuong" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/calocnuong.jpg" alt="Cá Lóc Nướng 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/calocnuong1.jpg" alt="Cá Lóc Nướng 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Cá Lóc Nướng</div>
+                    <div class="price">120.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon003" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon003')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselHauNuong" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/haunuong.jpg" alt="Hàu Nướng 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/HauNuong1.jpg" alt="Hàu Nướng 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Hàu Nướng Mỡ Hành</div>
+                    <div class="price">60.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon004" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon004')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="headline1">
+            <h2>Món Hấp</h2>
+        </div>
+
+        <article class="article-2">
+
+             <div class="divsp">
+                <div id="carouselGheHap" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/ghehap.jpg" alt="Ghẹ Hấp 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/ghehap1.jpg" alt="Ghẹ Hấp 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Ghẹ Hấp</div>
+                    <div class="price">200.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon005" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon005')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselTomHap" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/tomhap.jpg" alt="Tôm Hấp 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/tomhap1.jpg" alt="Tôm Hấp 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Tôm Hấp</div>
+                    <div class="price">80.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon006" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon006')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselMucHap" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/muchap.jpg" alt="Mực Hấp 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/muchap1.jpg" alt="Mực Hấp 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Mực Hấp</div>
+                    <div class="price">120.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon007" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon007')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselSoHap" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/sohap.jpg" alt="Sò Hấp 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/sohap1.jpg" alt="Sò Hấp 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Sò Hấp</div>
+                    <div class="price">99.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon008" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon008')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="headline1">
+            <h2>Món Nước</h2>
+        </div>
+
+        <article class="article-2">
+            <div class="divsp">
+                <div id="carouselLauHaiSan" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/lauhaisan.jpg" alt="Lẩu Hải Sản 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/lauhaisan1.jpg" alt="Lẩu Hải Sản 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Lẩu Hải Sản</div>
+                    <div class="price">280.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon009" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon009')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselLauCua" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/laucuabien.jpg" alt="Lẩu Cua 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/laucuabien1.jpg" alt="Lẩu Cua 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Lẩu Cua</div>
+                    <div class="price">220.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon0010" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon0010')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselCanhChuaCa" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/canhchuaca.jpg" alt="Canh Chua Cá 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/canhchuaca1.jpg" alt="Canh Chua Cá 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Canh Chua Cá</div>
+                    <div class="price">100.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon0011" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon0011')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+            <div class="divsp">
+                <div id="carouselLauThapCam" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Picture/sanpham/lauthapcam.jpg" alt="Lẩu Thập Cẩm 1" width="200px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Picture/sanpham/lauthapcam1.jpg" alt="Lẩu Thập Cẩm 2" width="200px">
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="name">Lẩu Thập Cẩm</div>
+                    <div class="price">260.000 VNĐ</div>
+                </div>
+                <div>
+                    <span data-nn="soluong">Số lượng:</span>
+                    <input id="mon012" type="number" max="100" min="0" value="0" size="3">
+                    <button class="save" onclick="addCart('mon012')" data-nn="dathang">Đặt món</button>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!--footer-->
+    <footer>
+        <nav class="navbar navbar-light">
+            <a class="navbar-brand" href="trangchu.html">
+                <img src="Picture/LogoRestaurant.jpg" width="70px">
+            </a>
+            <p id="company" class="navbar-brand">© Nhà Hàng Hải Sản 2024 <br>
+            Dc: hẻm 51, đường 3 Tháng 2, Hưng Lợi, Ninh Kiều, TP. Cần Thơ</p>
+        </nav>
+    </footer>
+    <script src="JS/sanpham.js"></script>
+
+</body>
+
+</html>
