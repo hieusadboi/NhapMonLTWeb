@@ -1,104 +1,50 @@
 <!DOCTYPE html>
-<html lang="vn">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title data-nn="ttsanpham">Tất Cả Món Hải Sản</title>
-    <link rel="icon" href="Picture/logo.jpg">      
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="Picture/LogoRestaurant.png">
-
-    <!--Thư viện boostrap-->
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!--CSS gõ tay-->
-    <link rel="stylesheet" href="CSS/headermainfooter.css">
-    <link rel="stylesheet" href="CSS/sanpham.css">
-
-    <!--Thư viện thay đổi thẻ nav khi thu nhỏ màn hình và thuộc tính của loader-->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-    <!--Hiển thị giỏ hàng-->
-    <script src="JS/dathang.js"></script>
-
+    <title>Sản Phẩm</title>
+    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="trangchu.css">
 </head>
-
 <body>
-    <!--loader-->
-    <div id='af-preloader'>
-        <div class='af-preloader-wrap'>
-            <div class='af-sp af-sp-wave'></div>
+    <header id="header">
+        <a href="" id="logo">The Ocean</a>
+       <p class="menu-button" onclick=showSidebar()><i class="fa-solid fa-bars"></i></p>
+        <nav class="nav" id="navbar">
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><p class="close-button"><i class="fa-solid fa-xmark"></i></p></li>
+                <li><a  href="trangchu.html">Trang Chủ</a></li>
+                <li><a  href="gioithieu.html">Giới Thiệu</a></li>
+                <li><a  href="sanpham.html">Sản Phẩm</a></li>
+                <li><a  href="dangnhap.html">Đăng Nhập</a></li>
+                <li><a  href="dangky.html">Đăng Ký</a></li>
+                <li><a  href="lienhe.html">Liên Hệ</a></li>
+              </ul>
+              
+              <ul>
+                <li class="hideOnMobile"><a href="trangchu.html">Trang Chủ</a></li>
+                <li class="hideOnMobile"><a href="gioithieu.html">Giới Thiệu</a></li>
+                <li class="hideOnMobile"><a href="sanpham.html">Sản Phẩm</a></li>
+                <li class="hideOnMobile"><a href="dangnhap.html">Đăng Nhập</a></li>
+                <li class="hideOnMobile"><a href="dangky.html">Đăng Ký</a></li>
+                <li class="hideOnMobile"><a href="lienhe.html">Liên Hệ</a></li>
+              </ul>
+        </nav> 
+ 
+        <div class="search-and-cart">
+        <i id="search-icon" onclick="toggleSearch()" class="fa-solid fa-magnifying-glass"></i>
+        <i id="cart-icon" onclick="move_donhang()" class="fa-solid fa-cart-shopping"></i> 
+        <div class="input-box" id="header-input-box">
+            <input type="text" id="header-input" placeholder="Nhập sản phẩm cần tìm">
         </div>
-    </div>
-    <script>
-        $(window).on('load', function () {
-            setTimeout(function () {
-                $('#af-preloader').fadeOut('slow');
-            }, 500);
-        });
-    </script>
-
-    <!--header-->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a id="#top" class="navbar-brand" href="trangchu.html">
-                <img src="Picture/LogoRestaurant.jpg" width="70px" />
-            </a>
-
-            <!--Nút mở thẻ nav khi ở dạng màn hình điện thoại-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!--Các nav điều hướng-->
-            <!--Các nav điều hướng-->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto navbar-items">
-                <li class="nav-item">
-                    <a class="nav-link" href="trangchu.html" data-nn="trangchu">Trang Chủ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="gioithieu.html" data-nn="gioithieu">Giới Thiệu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sanpham.html" data-nn="sanpham">Sản Phẩm</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="lienhe.html" data-nn="lienhe">Liên Hệ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="tintuc.html" data-nn="tintuc">Tin Tức</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dangky.html" data-nn="dangky">Đăng Ký</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dangnhap.html" data-nn="dangnhap">Đăng Nhập</a>
-                </li>
-            </ul>
-            <!--Form chứa thanh tìm kiếm, điều hướng giỏ hàng và chuyển đổi ngôn ngữ-->
-            <form class="form-inline my-2 my-lg-0" method="get">
-                <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-nn="timkiem">Tìm kiếm</button>
-                <a href="donhang.html"><img src="Picture/giohang.jpg" width="85px"></a>
-            </form>
-        </div>
-
-        </nav>
+        </div>   
     </header>
 
-    <!--main-->
     <main>
-        <div class="headline">
-            <h1 data-nn="sanpham">Món Hải Sản</h1>
-        </div>
-
         <div class="headline1">
             <h2>Món Nướng</h2>
         </div>
@@ -109,15 +55,16 @@
                 <div id="carouselTomNuong" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/tomnuong.jpg" alt="Tôm Nướng 1" width="200px">
+                            <img src="image/sanpham/tomnuong.jpg" alt="Tôm Nướng 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/tomnuong2.jpg" alt="Tôm Nướng 2" width="200px">
+                            <img src="image/sanpham/tomnuong2.jpg" alt="Tôm Nướng 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Tôm Nướng Muối Ớt</div>
+                    <div>Tôm nướng ngọt ngào cùng với muối ớt mặn mà cay cấp độ 7, thơm ngon sưng mỏ.</div> 
                     <div class="price">100.000 VNĐ</div>
                 </div>
                 <div>
@@ -131,15 +78,16 @@
                 <div id="carouselMucNuong" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/mucnuong.jpg.jpg" alt="Mực Nướng 1" width="200px">
+                            <img src="image/sanpham/mucnuong.jpg.jpg" alt="Mực Nướng 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/mucnuong2.jpg" alt="Mực Nướng 2" width="200px">
+                            <img src="image/sanpham/mucnuong2.jpg" alt="Mực Nướng 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Mực Nướng Sa Tế</div>
+                    <div>Mực nướng thấm gia vị xa tế cay cay, cùng với nước chấm đặc biệt mang đến sự khác biệt.</div>
                     <div class="price">120.000 VNĐ</div>
                 </div>
                 <div>
@@ -153,15 +101,16 @@
                 <div id="carouselCaLocNuong" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/calocnuong.jpg" alt="Cá Lóc Nướng 1" width="200px">
+                            <img src="image/sanpham/calocnuong.jpg" alt="Cá Lóc Nướng 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/calocnuong1.jpg" alt="Cá Lóc Nướng 2" width="200px">
+                            <img src="image/sanpham/calocnuong1.jpg" alt="Cá Lóc Nướng 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Cá Lóc Nướng</div>
+                    <div>Cá Lóc được tẩm ướp gia vị trước khi nướng trên than hồng, hương vị khó quên.</div>
                     <div class="price">120.000 VNĐ</div>
                 </div>
                 <div>
@@ -175,15 +124,16 @@
                 <div id="carouselHauNuong" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/haunuong.jpg" alt="Hàu Nướng 1" width="200px">
+                            <img src="image/sanpham/haunuong.jpg" alt="Hàu Nướng 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/HauNuong1.jpg" alt="Hàu Nướng 2" width="200px">
+                            <img src="image/sanpham/HauNuong1.jpg" alt="Hàu Nướng 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Hàu Nướng Mỡ Hành</div>
+                    <div>Hàu nướng phủ mỡ hành, hấp dẫn với vị béo thơm đặc trưng.</div>
                     <div class="price">60.000 VNĐ</div>
                 </div>
                 <div>
@@ -205,15 +155,16 @@
                 <div id="carouselGheHap" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/ghehap.jpg" alt="Ghẹ Hấp 1" width="200px">
+                            <img src="image/sanpham/ghehap.jpg" alt="Ghẹ Hấp 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/ghehap1.jpg" alt="Ghẹ Hấp 2" width="200px">
+                            <img src="image/sanpham/ghehap1.jpg" alt="Ghẹ Hấp 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Ghẹ Hấp</div>
+                    <div>Ghẹ tươi ngon được hấp chín, giữ trọn vị ngọt tự nhiên của biển.</div>
                     <div class="price">200.000 VNĐ</div>
                 </div>
                 <div>
@@ -227,15 +178,16 @@
                 <div id="carouselTomHap" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/tomhap.jpg" alt="Tôm Hấp 1" width="200px">
+                            <img src="image/sanpham/tomhap.jpg" alt="Tôm Hấp 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/tomhap1.jpg" alt="Tôm Hấp 2" width="200px">
+                            <img src="image/sanpham/tomhap1.jpg" alt="Tôm Hấp 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Tôm Hấp</div>
+                    <div>Tôm hấp chín tới, giữ lại hương vị ngọt ngào, đậm chất tự nhiên.</div>
                     <div class="price">80.000 VNĐ</div>
                 </div>
                 <div>
@@ -249,15 +201,16 @@
                 <div id="carouselMucHap" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/muchap.jpg" alt="Mực Hấp 1" width="200px">
+                            <img src="image/sanpham/muchap.jpg" alt="Mực Hấp 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/muchap1.jpg" alt="Mực Hấp 2" width="200px">
+                            <img src="image/sanpham/muchap1.jpg" alt="Mực Hấp 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Mực Hấp</div>
+                    <div>Mực hấp mềm ngọt, giữ nguyên độ tươi ngon, thích hợp cho mọi bữa tiệc.</div>
                     <div class="price">120.000 VNĐ</div>
                 </div>
                 <div>
@@ -271,15 +224,16 @@
                 <div id="carouselSoHap" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/sohap.jpg" alt="Sò Hấp 1" width="200px">
+                            <img src="image/sanpham/sohap.jpg" alt="Sò Hấp 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/sohap1.jpg" alt="Sò Hấp 2" width="200px">
+                            <img src="image/sanpham/sohap1.jpg" alt="Sò Hấp 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Sò Hấp</div>
+                    <div>Sò tươi ngon hấp nóng, thơm phức với hương vị biển sâu.</div>
                     <div class="price">99.000 VNĐ</div>
                 </div>
                 <div>
@@ -300,15 +254,16 @@
                 <div id="carouselLauHaiSan" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/lauhaisan.jpg" alt="Lẩu Hải Sản 1" width="200px">
+                            <img src="image/sanpham/lauhaisan.jpg" alt="Lẩu Hải Sản 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/lauhaisan1.jpg" alt="Lẩu Hải Sản 2" width="200px">
+                            <img src="image/sanpham/lauhaisan1.jpg" alt="Lẩu Hải Sản 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Lẩu Hải Sản</div>
+                    <div>Lẩu hải sản với đa dạng các loại tươi sống, nước lẩu đậm đà.</div>
                     <div class="price">280.000 VNĐ</div>
                 </div>
                 <div>
@@ -322,15 +277,16 @@
                 <div id="carouselLauCua" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/laucuabien.jpg" alt="Lẩu Cua 1" width="200px">
+                            <img src="image/sanpham/laucuabien.jpg" alt="Lẩu Cua 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/laucuabien1.jpg" alt="Lẩu Cua 2" width="200px">
+                            <img src="image/sanpham/laucuabien1.jpg" alt="Lẩu Cua 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Lẩu Cua</div>
+                    <div>Lẩu cua biển, ngọt từ thịt cua tươi, hấp dẫn với vị nước lẩu thơm ngon.</div>
                     <div class="price">220.000 VNĐ</div>
                 </div>
                 <div>
@@ -344,15 +300,16 @@
                 <div id="carouselCanhChuaCa" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/canhchuaca.jpg" alt="Canh Chua Cá 1" width="200px">
+                            <img src="image/sanpham/canhchuaca.jpg" alt="Canh Chua Cá 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/canhchuaca1.jpg" alt="Canh Chua Cá 2" width="200px">
+                            <img src="image/sanpham/canhchuaca1.jpg" alt="Canh Chua Cá 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Canh Chua Cá</div>
+                    <div>Canh chua cá thơm ngon, vị chua ngọt hài hòa, đậm chất miền Tây.</div>
                     <div class="price">100.000 VNĐ</div>
                 </div>
                 <div>
@@ -366,15 +323,16 @@
                 <div id="carouselLauThapCam" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Picture/sanpham/lauthapcam.jpg" alt="Lẩu Thập Cẩm 1" width="200px">
+                            <img src="image/sanpham/lauthapcam.jpg" alt="Lẩu Thập Cẩm 1" width="200px">
                         </div>
                         <div class="carousel-item">
-                            <img src="Picture/sanpham/lauthapcam1.jpg" alt="Lẩu Thập Cẩm 2" width="200px">
+                            <img src="image/sanpham/lauthapcam1.jpg" alt="Lẩu Thập Cẩm 2" width="200px">
                         </div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="name">Lẩu Thập Cẩm</div>
+                    <div>Lẩu thập cẩm phong phú, hương vị hòa quyện từ nhiều nguyên liệu tươi ngon.</div>
                     <div class="price">260.000 VNĐ</div>
                 </div>
                 <div>
@@ -387,17 +345,65 @@
         </article>
     </main>
 
-    <!--footer-->
-    <footer>
-        <nav class="navbar navbar-light">
-            <a class="navbar-brand" href="trangchu.html">
-                <img src="Picture/LogoRestaurant.jpg" width="70px">
-            </a>
-            <p id="company" class="navbar-brand">© Nhà Hàng Hải Sản 2024 <br>
-            Dc: hẻm 51, đường 3 Tháng 2, Hưng Lợi, Ninh Kiều, TP. Cần Thơ</p>
-        </nav>
-    </footer>
-    <script src="JS/sanpham.js"></script>
+    <!-- Modal popup -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    
+
+</body>
+
+<footer>
+    <div class="camket footer-div">
+        <h1>--- Cam kết ---</h1>
+        <br>
+        <p>Nhà hàng chúng tôi luôn cam kết, đảm bảo đưa món ăn,
+             sản phẩm với nguồn gốc rõ ràng, chất lượng nhất đến tay khách khàng
+
+        </p>
+    </div>
+    <div class="lienhe footer-div">
+        <h1>--- Liên hệ ---</h1>
+        <br>
+        <p>Tư vấn dịch vụ: 1800 1709</p>
+        <p>Hỗ trợ vận chuyển: 1900 1709</p>
+        <p>Email: support@...vn</p>
+        <p>Từ 7h00 - 22h00 các ngày từ thứ 2 đến Chủ nhật</p>
+
+    </div>
+    <div class="vechungtoi footer-div">
+        <h1>--- Về chúng tôi ---</h1>
+        <br>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="">Chính sách đổi trả</a>
+        <a href="">Chính sách bảo mật</a>
+        <a href="">Điều khoản dịch vụ</a>
+    </div>
+    <div class="lienhechungtoi footer-div">
+        <h1>--- Liên hệ chúng tôi ---</h1>
+        <br>
+        <p>Luôn cập nhật tất cả các hành động mà chúng tôi đã lưu cho tất cả khách hàng của mình.</p>
+        <br>
+        <div class="brands-box">
+            <div class="fa-icon-div brands-icon-div">
+            <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="fa-icon-div brands-icon-div">
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="fa-icon-div brands-icon-div">
+            <a href="https://www.pinterest.com/" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+        <div class="fa-icon-div brands-icon-div">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
+
+</footer>
+
+    <script src="script.js"></script>
 
 </body>
 

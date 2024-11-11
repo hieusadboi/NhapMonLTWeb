@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/css/all.min.css">
+
+    <link rel="stylesheet" href="trangchu.css">
+
+</head>
+<body>
+    <header id="header">
+        <a href="" id="logo">The Ocean</a>
+       <p class="menu-button" onclick=showSidebar()><i class="fa-solid fa-bars"></i></p>
+        <nav class="nav" id="navbar">
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><p class="close-button"><i class="fa-solid fa-xmark"></i></p></li>
+                <li><a  href="trangchu.html">Trang Chủ</a></li>
+                <li><a  href="gioithieu.html">Giới Thiệu</a></li>
+                <li><a  href="sanpham.html">Sản Phẩm</a></li>
+                <li><a  href="dangnhap.html">Đăng Nhập</a></li>
+                <li><a  href="dangky.html">Đăng Ký</a></li>
+                <li><a  href="lienhe.html">Liên Hệ</a></li>
+              </ul>
+              
+              <ul>
+                <li class="hideOnMobile"><a href="trangchu.html">Trang Chủ</a></li>
+                <li class="hideOnMobile"><a href="gioithieu.html">Giới Thiệu</a></li>
+                <li class="hideOnMobile"><a href="sanpham.html">Sản Phẩm</a></li>
+                <li class="hideOnMobile"><a href="dangnhap.html">Đăng Nhập</a></li>
+                <li class="hideOnMobile"><a href="dangky.html">Đăng Ký</a></li>
+                <li class="hideOnMobile"><a href="lienhe.html">Liên Hệ</a></li>
+              </ul>
+        </nav> 
+ 
+        <div class="search-and-cart">
+        <i id="search-icon" onclick="toggleSearch()" class="fa-solid fa-magnifying-glass"></i>
+        <i id="cart-icon" onclick="move_donhang()" class="fa-solid fa-cart-shopping"></i> 
+        <div class="input-box" id="header-input-box">
+            <input type="text" id="header-input" placeholder="Nhập sản phẩm cần tìm">
+        </div>
+        </div>   
+    </header>
+
+    
+    <main id="main-content">
+    <div id="img-container">
+    </div>
+        <div class="slide-text" id="animatedText">
+        <h1 class="text-color center bigh1">Tận hưởng hải sản tươi sống ngay bên bờ biển!</h1>
+       <p class="text-color center bigp">Trải nghiệm tinh túy của biển cả qua các món hải sản tinh tế của chúng tôi. Thưởng thức hương vị đưa vị giác của bạn đến những bờ biển đầy thơ mộng.</p>
+       <a class="check-products center bigp bold" href="sanpham.html">ĐẶT HÀNG NGAY</a>
+        </div>
+
+
+    <div class="homepage-menu">
+        <h1 class="center bigh1 bold" >Thực đơn nổi bật</h1>
+        <p class="marginbottom-20vh center bold">Khám phá những món ăn của chúng tôi</p>
+ 
+        <div class="menu-items picture-left">
+            <img src="image/menu-pic2.jpg" width="" alt="Cua biển rang me">
+            <div class="menu-items-discription">
+                <h2 class="center bold">Cua rang me - "Vị chua cay đậm đà"</h2>
+                <br>
+                <p class="center bold bigp">GIÁ: 250.000đ</p>
+                <br>
+                <p class="bigp">Thưởng thức hương vị độc đáo của cua biển tươi sống,
+                     được rang kỹ với nước sốt me chua ngọt đầy hấp dẫn. 
+                     Món ăn kết hợp hoàn hảo giữa vị ngọt thanh của thịt cua chắc nịch và sốt me đậm đà,
+                      cay nhẹ, mang lại trải nghiệm hương vị khó quên.</p>
+            </div>
+        </div>
+
+        <div class="menu-items picture-right">
+            <img src="image/menu-pic3.jpg" alt="Tôm hùm nướng">
+            <div class="menu-items-discription">
+                <h2 class="center bold">Tôm Hùm Nướng – "Hương vị tinh tế từ biển cả"</h2>
+                <br>
+                <p class="center bold bigp">GIÁ: 300.000đ</p>
+                <br>
+                <p class="bigp">Tôm hùm tươi ngon được tuyển chọn kỹ lưỡng, 
+                    nướng trên than hồng để giữ trọn vẹn hương vị tự nhiên. 
+                    Từng thớ thịt tôm trắng ngọt, săn chắc hòa quyện cùng lớp gia vị đậm đà,
+                     tạo nên một trải nghiệm ẩm thực tinh tế.</p>
+            </div>
+        </div>
+
+        <div class="menu-items picture-left">
+            <img src="image/menu-pic4.jpg"  alt="Bạch tuột nướng">
+            <div class="menu-items-discription">
+                <h2 class="center bold">Bạch Tuộc Nướng – "Dai giòn thơm ngon"</h2>
+                <br>
+                <p class="center bold bigp">GIÁ: 150.000đ</p>
+                <br>
+                <p class="bigp">Bạch tuộc tươi sống được ướp kỹ với gia vị đặc trưng,
+                     sau đó nướng trên bếp than hồng, giữ lại trọn vẹn độ tươi ngon và độ giòn sần sật.
+                     Món ăn nổi bật với hương thơm quyến rũ từ bạch tuộc nướng vàng óng, hòa quyện cùng gia vị đậm đà.</p>
+            </div>
+        </div>
+
+        <div class="menu-items last-item picture-right">
+            <img src="image/menu-pic5.jpg" alt="Hàu nướng phô mai">
+            <div class="menu-items-discription">
+                <h2 class="center bold">Hàu Nướng Phô Mai – "Sự hòa quyện béo ngậy"</h2>
+                <br>
+                <p class="center bold bigp">GIÁ: 99.000đ</p>
+                <br>
+                <p class="bigp">Những con hàu tươi ngon được chọn lọc kỹ lưỡng,
+                     nướng vừa chín tới, phủ lên trên lớp phô mai vàng óng, tan chảy. 
+                     Vị ngọt tự nhiên của hàu kết hợp cùng hương thơm béo ngậy của
+                     phô mai tạo nên sự cân bằng hoàn hảo giữa vị mặn của biển và sự mềm mịn, đậm đà của phô mai.</p>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <div class="elevate">
+        <div class="elevate-text">
+        <h1 class="bigh1">Nâng cao trải nghiệm ăn uống của bạn</h1>
+        <br>
+        <p class="bigp">Nâng cao hành trình ẩm thực của bạn với các loại nước sốt hảo hạng của chúng tôi,
+             được thiết kế để bổ sung hoàn hảo cho các món hải sản của chúng tôi.
+              Nước sốt của chúng tôi bổ sung thêm một lớp hương vị,
+             cho phép bạn tùy chỉnh trải nghiệm ăn uống của mình và thưởng thức sự phong phú của đại dương.</p>
+             <br>
+             <br>
+            <a class="check-products bold bigp" href="sanpham.html">XEM SẢN PHẨM</a>
+            </div>
+    </div>
+
+        <h1 class="text-color center bigh1 bold" >Đánh giá</h1>
+        <p class="text-color center bigp" >Khách hàng chúng tôi nói gì</p>
+       
+    <br>
+    <br>
+    <div class="customer-response-box">
+     
+        <div class="customer-response">
+            <img src="image/quotes.png" width="35px" alt="">
+            <p>Hải sản tươi ngon, chế biến tinh tế và đậm chất biển cả. Một trải nghiệm ẩm thực tuyệt vời, tôi đề nghị được làm bếp trưởng cho nơi này.</p>
+            <div class="customer-avatar">
+                <img src="image/gordonramsay.jpg" width="80px"  alt="Gordon Ramsay">
+                <h2 class="customer-name">Gordon Ramsay</h2>
+                <p class="customer-comment">Siêu đầu bếp</p>
+            </div>
+        </div>
+        <div class="customer-response">
+            <img src="image/quotes.png" width="35px" alt="">
+
+            <p>Tôi rất thích không gian của quán và chất lượng phục vụ
+                của nhân viên. Còn món ăn thì xuất sắc.
+            </p>
+            <div class="customer-avatar">
+                <img src="image/customer-profile2.webp"  width="80px" alt="">
+                <h2 class="customer-name">Kim Min Jea</h2>
+                <p class="customer-comment">Khách du lịch</p>
+            </div>
+        </div>
+        <div class="customer-response">
+            <img src="image/quotes.png" width="35px"  alt="quotes">
+            <br>
+            <p>Đây là nhà hàng hải sản chất lượng nhất
+                mà tôi từng đến. Tôi nhất định sẽ giới thiệu với 
+                bạn bè và người thân về nơi này!
+            </p>
+            <br>
+            <div class="customer-avatar">
+                <img src="image/customer-profile4.jpeg" width="80px"  alt="">
+                <h2 class="customer-name">Lê Diệp Châu</h2>
+                <p class="customer-comment">Nhà phê bình</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="boxicons">
+        <h1 class="center bigh1 bold">                Đặt Hàng Ngay           </h1>
+       
+            
+            <div class="ordericonbox">
+               <div class="fa-icon-div centerdiv order-icon-div"> <i class="fa-solid fa-phone"></i> </div>
+                       <p class="bigp">                Gọi Điện
+            </p>
+            </div>
+            <div class="ordericonbox">
+                <div class="fa-icon-div centerdiv order-icon-div"><i class="fa-solid fa-cart-plus"></i> </div>         
+                    <p class="bigp">                Đặt Hàng
+            </p>
+            </div>
+            <div class="ordericonbox">
+                <div class="fa-icon-div centerdiv order-icon-div"><i class="fa-solid fa-truck-fast"></i></div>            
+                <p class="bigp">                             Nhận Hàng
+
+            </p>
+            </div>
+            <div class="ordericonbox">
+                <div class="fa-icon-div centerdiv order-icon-div"><i class="fa-solid fa-credit-card"></i></div>
+            <p class="bigp">                              Thanh Toán
+
+            </p>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer>
+        <div class="camket footer-div">
+            <h1>--- Cam kết ---</h1>
+            <br>
+            <p>Nhà hàng chúng tôi luôn cam kết, đảm bảo đưa món ăn,
+                 sản phẩm với nguồn gốc rõ ràng, chất lượng nhất đến tay khách khàng
+
+            </p>
+        </div>
+        <div class="lienhe footer-div">
+            <h1>--- Liên hệ ---</h1>
+            <br>
+            <p>Tư vấn dịch vụ: 1800 1709</p>
+            <p>Hỗ trợ vận chuyển: 1900 1709</p>
+            <p>Email: support@...vn</p>
+            <p>Từ 7h00 - 22h00 các ngày từ thứ 2 đến Chủ nhật</p>
+
+        </div>
+        <div class="vechungtoi footer-div">
+            <h1>--- Về chúng tôi ---</h1>
+            <br>
+            <a href="gioithieu.html">Giới thiệu</a>
+            <a href="">Chính sách đổi trả</a>
+            <a href="">Chính sách bảo mật</a>
+            <a href="">Điều khoản dịch vụ</a>
+        </div>
+        <div class="lienhechungtoi footer-div">
+            <h1>--- Liên hệ chúng tôi ---</h1>
+            <br>
+            <p>Luôn cập nhật tất cả các hành động mà chúng tôi đã lưu cho tất cả khách hàng của mình.</p>
+            <br>
+            <div class="brands-box">
+                <div class="fa-icon-div brands-icon-div">
+                <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="fa-icon-div brands-icon-div">
+                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="fa-icon-div brands-icon-div">
+                <a href="https://www.pinterest.com/" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+            <div class="fa-icon-div brands-icon-div">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
