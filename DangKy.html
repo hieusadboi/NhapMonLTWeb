@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Đăng ký</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            width: auto;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 50%;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #3d94f0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 14%;
+            border: #3d94f0;
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        td:first-child {
+            text-align: left;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+        nav {
+            position: absolute; /* Đặt vị trí tuyệt đối để nó luôn ở trên cùng */
+            top: 0; /* Cách lề trên cùng */
+            left: 0; /* Cách lề trái */
+            width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
+            background-color:#007bff ; /* Màu nền cho thanh điều hướng */
+            padding: 10px 20px; /* Khoảng cách bên trong */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng thanh điều hướng */
+        }
+    </style>
+        <nav>
+            <a href="DangKy.html">Đăng Ký</a>
+            <a href="DangNhap.html">Đăng Nhập</a>
+        </nav>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Thông tin Đăng ký</h2>
+        <form id="registrationForm" action="#" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td><label for="mssv">MSSV:</label></td>
+                    <td><input type="text" id="mssv" name="mssv" minlength = "1" maxlength="4" placeholder="Nhập Mã Sinh Viên"></td>
+                </tr>
+                <tr>
+                    <td><label for="hoten">Họ tên:</label></td>
+                    <td><input type="text" id="hoten" name="hoten" required></td>
+                </tr>
+                <tr>
+                    <td><label for="gioitinh">Giới tính:</label></td>
+                    <td>
+                        <select id="gioitinh" name="gioitinh" required>
+                            <option value="">Chọn giới tính</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><label for="ngaysinh">Ngày sinh:</label></td>
+                    <td><input type="date" id="ngaysinh" name="ngaysinh" required></td>
+                </tr>
+                <tr>
+                    <td><label for="quequan">Quê quán:</label></td>
+                    <td><textarea id="quequan" name="quequan" rows="3" required></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="sdt">SĐT:</label></td>
+                    <td><input type="tel" id="sdt" name="sdt" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">E-mail:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="anhdaidien">Ảnh đại diện:</label></td>
+                    <td><input type="file" id="anhdaidien" name="anhdaidien" accept="image/*"></td>
+                </tr>
+                <tr>
+                    <td><label for="matkhau">Mật khẩu:</label></td>
+                    <td><input type="password" id="matkhau" name="matkhau" minlength="1" maxlength="8" required></td>
+                </tr>
+                <tr>
+                    <td><label for="nhaplaimatkhau">Nhập lại MK:</label></td>
+                    <td><input type="password" id="nhaplaimatkhau" name="nhaplaimatkhau" required></td>
+                </tr>
+            </table>
+            <div>
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        let isValid = true; // Biến để kiểm tra trạng thái hợp lệ
+
+        // Lấy giá trị các trường
+        const mssv = document.getElementById("mssv").value.trim();
+        const hoten = document.getElementById("hoten").value.trim();
+        const ngaysinh = document.getElementById("ngaysinh").value;
+        const quequan = document.getElementById("quequan").value.trim();
+        const sdt = document.getElementById("sdt").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const matkhau = document.getElementById("matkhau").value;
+        const nhaplaimatkhau = document.getElementById("nhaplaimatkhau").value;
+
+        // Kiểm tra MSSV (bắt buộc và chỉ gồm chữ số)
+        if (!/^\d+$/.test(mssv)) {
+            alert("MSSV chỉ được chứa chữ số.");
+            isValid = false;
+        }
+
+        // Kiểm tra họ tên (bắt buộc, không được chứa số)
+        if (!/^[a-zA-ZÀ-ỹ\s]+$/.test(hoten)) {
+            alert("Họ tên chỉ được chứa chữ cái và khoảng trắng.");
+            isValid = false;
+        }
+
+        // Kiểm tra ngày sinh (phải nhập)
+        if (!ngaysinh) {
+        alert("Vui lòng chọn ngày sinh.");
+        isValid = false;
+        } else {
+            const selectedDate = new Date(ngaysinh);
+            const currentDate = new Date();
+
+            if (selectedDate >= currentDate) {
+                alert("Ngày sinh phải nhỏ hơn ngày hiện tại.");
+                isValid = false;
+            }
+        }
+
+        // Kiểm tra quê quán (bắt buộc)
+        if (quequan === "") {
+            alert("Vui lòng nhập quê quán.");
+            isValid = false;
+        }
+
+        // Kiểm tra số điện thoại (bắt đầu bằng 0 và dài 10 số)
+        if (!/^0\d{9}$/.test(sdt)) {
+            alert("Số điện thoại không hợp lệ. Phải bắt đầu bằng số 0 và đủ 10 chữ số.");
+            isValid = false;
+        }
+
+        // Kiểm tra email
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert("Địa chỉ email không hợp lệ.");
+            isValid = false;
+        }
+
+        // Kiểm tra mật khẩu và nhập lại mật khẩu
+        if (matkhau !== nhaplaimatkhau) {
+            alert("Mật khẩu và Nhập lại mật khẩu không khớp.");
+            isValid = false;
+        }
+
+        // Nếu không hợp lệ, ngăn gửi form
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>
+</html>

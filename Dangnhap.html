@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            width: 400px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form input:focus {
+            border-color: #4caf50;
+            outline: none;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .extra-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .forgot-password {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .forgot-password:hover {
+            color: #0056b3;
+        }
+        nav {
+            position: absolute; /* Đặt vị trí tuyệt đối để nó luôn ở trên cùng */
+            top: 0; /* Cách lề trên cùng */
+            left: 0; /* Cách lề trái */
+            width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
+            background-color:#007bff ; /* Màu nền cho thanh điều hướng */
+            padding: 10px 20px; /* Khoảng cách bên trong */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng thanh điều hướng */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="DangKy.html" id = "dangky">Đăng Ký</a>
+            <a href="DangNhap.html" id = "dangnhap">Đăng Nhập</a>
+        </nav>
+    </header>
+    <div class="form-container">
+        <h2>Đăng nhập</h2>
+        <form id="loginForm" action="#" method="post" enctype="multipart/form-data">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email" required>
+
+            <label for="matkhau">Mật khẩu:</label>
+            <input type="password" id="matkhau" name="matkhau" placeholder="Nhập mật khẩu (tối thiểu 8 ký tự)" required>
+
+            <div class="extra-options">
+                <label>
+                    <input type="checkbox" id="rememberMe"> Ghi nhớ đăng nhập
+                </label>
+                <span class="forgot-password" onclick="resetPassword()">Quên mật khẩu?</span>
+            </div>
+
+            <div id="error" class="error-message"></div>
+            <div id="success" class="success-message"></div>
+
+            <button type="submit">Đăng nhập</button>
+        </form>
+    </div>
+
+    <script>
+        // Cơ sở dữ liệu JSON (giả lập)
+        const usersDB = [
+            { email: "hieub2207520@student.ctu.edu.vn", password: "mahd*Fq4" },
+            { email: "user2@example.com", password: "password456" },
+        ];
+
+        // Lưu trữ email đã ghi nhớ nếu có
+        window.onload = function () {
+            const savedEmail = localStorage.getItem("rememberedEmail");
+            if (savedEmail) {
+                document.getElementById("email").value = savedEmail;
+                document.getElementById("rememberMe").checked = true;
+            }
+        };
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Ngăn gửi form mặc định
+            const email = document.getElementById("email").value.trim();
+            const matkhau = document.getElementById("matkhau").value.trim();
+            const rememberMe = document.getElementById("rememberMe").checked;
+            const errorDiv = document.getElementById("error");
+            const successDiv = document.getElementById("success");
+            let isValid = true;
+
+            // Xóa thông báo cũ
+            errorDiv.textContent = "";
+            successDiv.textContent = "";
+
+            // Kiểm tra định dạng email hợp lệ
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errorDiv.textContent = "Địa chỉ email không hợp lệ.";
+                isValid = false;
+            }
+
+            // Kiểm tra độ dài mật khẩu
+            if (matkhau.length < 8) {
+                errorDiv.textContent = "Mật khẩu phải có ít nhất 8 ký tự.";
+                isValid = false;
+            }
+
+            // Nếu các kiểm tra hợp lệ
+            if (isValid) {
+                let found = false;
+
+                // Duyệt qua danh sách người dùng
+                for (let i = 0; i < usersDB.length; i++) {
+                    if (usersDB[i].email === email && usersDB[i].password === matkhau) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                // Kiểm tra kết quả
+                if (found) {
+                    successDiv.textContent = "Đăng nhập thành công!";
+                    errorDiv.textContent = "";
+
+                    // Lưu email vào localStorage nếu ghi nhớ
+                    if (rememberMe) {
+                        localStorage.setItem("rememberedEmail", email);
+                    } else {
+                        localStorage.removeItem("rememberedEmail");
+                    }
+                } else {
+                    errorDiv.textContent = "Email hoặc mật khẩu không đúng.";
+                    successDiv.textContent = "";
+                }
+            }
+        });
+
+        // Hàm xử lý khi người dùng quên mật khẩu
+        function resetPassword() {
+            alert("Vui lòng liên hệ quản trị viên để đặt lại mật khẩu!");
+        }
+    </script>
+</body>
+</html>
